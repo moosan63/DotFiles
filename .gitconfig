@@ -1,0 +1,35 @@
+[user]
+    name    = Ryo MURAKAMI
+    email   = moosan63@gmail.com
+
+[core]
+    editor  = emacs
+    autocrlf= input
+
+[push]
+    default = tracking
+
+[pager]
+    diff =
+
+[color]
+    ui            = true
+    status        = auto
+    diff          = auto
+    branch        = auto
+    grep          = auto
+    interactive   = auto
+
+[alias]
+    ad  = add .
+    br  = branch
+    ba  = branch -a
+    bn  = branch --no-merged
+    ci  = commit -m
+    co  = checkout
+    di  = diff
+    fe  = fetch
+    lg  = log --graph --date=iso --pretty=format:'%Cgreen%cd %Cblue%cn %Cred%h\n  %Creset%s'
+    sh  = show
+    st  = status -sb
+    wc  = whatchanged --graph
