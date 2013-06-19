@@ -61,13 +61,18 @@
 (setq scssm-indent-level 4)
 (setq scssm-indent-function #'cssm-c-style-indenter)
 
+;; sass-mode
+(autoload 'sass-mode "sass-mode")
+(setq sass-compile-at-save nil) ;; 自動コンパイルをオフにする
+(add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
+(setq sassm-indent-level 4)
+(setq sassm-indent-function #'cssm-c-style-indenter)
+
 ;; ruby-mode
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)
-(setq auto-mode-alist
-      (append '(("\\.rb$" . ruby-mode)) auto-mode-alist))
-(setq interpreter-mode-alist (append '(("ruby" . ruby-mode))
-                                     interpreter-mode-alist))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 
 (setq ruby-indent-level 2)
 (setq ruby-indent-tabs-mode nil)

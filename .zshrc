@@ -311,3 +311,6 @@ export PATH=$PATH:/usr/local/Cellar/emacs/24.2/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PHP_HOME=$HOME/local/php/versions
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
