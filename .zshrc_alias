@@ -1,0 +1,59 @@
+#alias ls="$LS_PATH -h $LS_OPTIONS"
+#alias l="$LS_PATH -h $LS_OPTIONS"
+#alias la="$LS_PATH -ha $LS_OPTIONS"
+#alias ll="$LS_PATH -lAFtr $LS_OPTIONS"
+#alias lsH="$LS_PATH -l $LS_OPTIONS"
+#alias lsHa="$LS_PATH -la $LS_OPTIONS"
+#alias lsg="$LS_PATH -lh $LS_OPTIONS . | grep"
+alias ls='ls -GF'
+alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir'
+
+# grep。デフォルトでケースセーフに
+alias -g G="| grep -3 -n -i --color=auto"
+alias -g nG="| grep -3 -n -i --color=auto -v"
+alias grep="grep -3 -n -i --color=auto"
+alias ngrep="grep -3 -n -i --color=auto -v"
+
+# 再帰的に、強調付きでgrep
+alias findgrep='find . -type f -not -path \*/.svn/\* -not -path \*~ | xargs grep -I -H -n --color=always --context=1'
+
+# 要するにless。
+alias -g L="| lv -c"	# less -R
+
+# 指定したユーザーにメッセージを送る
+alias -g W="| write"
+
+# エディタ
+alias emacs="/usr/local/Cellar/emacs/24.2/bin/emacs  -nw" 
+
+# -p: 複数ファイル指定したときにタブに展開
+alias vi="vim -p"
+alias vim="vim -p"
+
+# 文字コード変換
+alias -g EUC="| iconv --from-code=EUC-JP --to-code=UTF-8"
+alias -g SJIS="| iconv --from-code=SHIFT-JIS --to-code=UTF-8"
+alias -g TOEUC="| iconv --from-code=UTF-8 --to-code=EUC-JP"
+alias -g TOSJIS="| iconv --from-code=UTF-8 --to-code=SHIFT-JIS"
+
+# 特定コマンドを繰り返す
+alias WATCH="watch -d --interval=1"
+alias WATCHsudo="sudo watch -d --interval=1"
+
+# screenを、自動でアタッチするようにする
+# -U は、念のためUTF-8設定にさせるためのもの
+alias scr="screen -U -D -RR"
+alias screen="screen -U -D -RR"
+
+alias rm='rm -i'
+alias e='emacs'
+
+#俺用エイリアス
+alias be='bundle exec'
+alias bi='bundle install'
+alias r='rails'
+alias cs="coffee"
+alias javac="javac -J-Dfile.encoding=UTF8"
+alias mysqlr='mysql -u root -h 127.0.0.1 -p'
+
+

@@ -6,3 +6,4 @@ ln -s ~/DotFiles/.bash_profile ~/.bash_profile
 ln -s ~/DotFiles/.gitconfig ~/.gitconfig
 ln -s ~/DotFiles/.emacs ~/.emacs
 ln -s ~/DotFiles/.emacs.d ~/.emacs.d
+ln -s ~/DotFiles/.rspec ~/.rspec

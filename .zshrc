@@ -65,13 +65,13 @@ RPROMPT=$'%{\e[${PSCOLOR}m%}%F{white}[`rprompt-git-current-branch`%~]%f%{\e[00m%
 # %m	マシン名
 PROMPT=$'%{\e[${PSCOLOR}m%}${USERNAME}@${HOST} %#%{\e[m%} '
 
-
-alias gd='dirs -v; echo -n "select number: "; read newdir; cd +"$newdir'
-
-
 #### 個人用設定ファイルがあればそれを読み込む
 if [ -e ~/.zshrc_private ]; then
     source ~/.zshrc_private
+fi
+
+if [ -e ~/.zshrc_alias ]; then
+    source ~/.zshrc_alias
 fi
 
 
@@ -93,24 +93,6 @@ export LS_COLORS=$LS_COLORS':ow=31'
 # アーカイブ系
 export LS_COLORS=$LS_COLORS':*.tar=35:*.gz=35:*.bz2=35:*.zip=35:*.lha=35:*.z=35:*.Z=35:*.tgz=35'
 
-#alias ls="$LS_PATH -h $LS_OPTIONS"
-#alias l="$LS_PATH -h $LS_OPTIONS"
-#alias la="$LS_PATH -ha $LS_OPTIONS"
-#alias ll="$LS_PATH -lAFtr $LS_OPTIONS"
-#alias lsH="$LS_PATH -l $LS_OPTIONS"
-#alias lsHa="$LS_PATH -la $LS_OPTIONS"
-#alias lsg="$LS_PATH -lh $LS_OPTIONS . | grep"
-alias ls='ls -GF'
-
-# grep。デフォルトでケースセーフに
-alias -g G="| grep -3 -n -i --color=auto"
-alias -g nG="| grep -3 -n -i --color=auto -v"
-alias grep="grep -3 -n -i --color=auto"
-alias ngrep="grep -3 -n -i --color=auto -v"
-
-# 再帰的に、強調付きでgrep
-alias findgrep='find . -type f -not -path \*/.svn/\* -not -path \*~ | xargs grep -I -H -n --color=always --context=1'
-
 
 # hisotry
 # setopt share_history # 前のほうですでに設定してある。
@@ -125,24 +107,6 @@ function history-all { history -E 1 } # 全履歴の一覧を出力する
 function url-encode { E=${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]} }
 function url-decode { D=${1//\%(#b)([0-F][0-F])/\\\x$match[1]} }
 
-# 要するにless。
-alias -g L="| lv -c"	# less -R
-
-# 指定したユーザーにメッセージを送る
-alias -g W="| write"
-
-# エディタ
-alias emacs="/usr/local/Cellar/emacs/24.2/bin/emacs  -nw" 
-
-# -p: 複数ファイル指定したときにタブに展開
-alias vi="vim -p"
-alias vim="vim -p"
-
-# 文字コード変換
-alias -g EUC="| iconv --from-code=EUC-JP --to-code=UTF-8"
-alias -g SJIS="| iconv --from-code=SHIFT-JIS --to-code=UTF-8"
-alias -g TOEUC="| iconv --from-code=UTF-8 --to-code=EUC-JP"
-alias -g TOSJIS="| iconv --from-code=UTF-8 --to-code=SHIFT-JIS"
 function EUCL(){
     cat $1 EUC L
 }
@@ -186,15 +150,6 @@ function untargz(){
 function diffApply(){
 	patch -p0 -d . < $1
 }
-
-# 特定コマンドを繰り返す
-alias WATCH="watch -d --interval=1"
-alias WATCHsudo="sudo watch -d --interval=1"
-
-# screenを、自動でアタッチするようにする
-# -U は、念のためUTF-8設定にさせるためのもの
-alias scr="screen -U -D -RR"
-alias screen="screen -U -D -RR"
 
 
 # 引数を数式として計算
@@ -252,16 +207,7 @@ which lsb_release >/dev/null 2>&1 && lsb_release -si | grep -E 'Ubuntu|Debian' >
   export PATH=$GEM_BIN:$PATH
 }
 
-
-alias okushun='ssh stakeda@okushun.iplab.cs.tsukuba.ac.jp'
-alias balthazar='ssh shinnosuke@balthazar.cnosuke.com'
-alias magi='ssh shinnosuke@magi.cnosuke.com'
-
 #export PATH=/Users/shinnosuke/bin:/opt/local/bin:/opt/local/sbin:/Users/shinnosuke/ruby:/Users/shinnosuke/.gem/ruby/1.8/bin:$PATH
-alias rm='rm -i'
-alias e='emacs'
-alias texup="scp -r /Users/moosan/Dropbox/Dropbox/tex murakami@serv2.hpcs.cs.tsukuba.ac.jp:."
-alias texdown="scp -r murakami@serv2.hpcs.cs.tsukuba.ac.jp:./tex /Users/moosan/Dropbox/Dropbox/"
 
 export PATH=/sbin:$PATH
 
@@ -290,14 +236,6 @@ function rprompt-git-current-branch {
     fi
     echo "${color}(${name}${action})%f%b"
 }
-#俺用エイリアス
-alias be='bundle exec'
-alias bi='bundle install'
-alias r='rails'
-alias cs="coffee"
-alias sim='ssh -L 4443:i-www.iit.tsukuba.ac.jp:80 work1'
-alias javac="javac -J-Dfile.encoding=UTF8"
-alias mysqlr='mysql -u root -h 127.0.0.1 -p'
 # For RDS
 export JAVA_HOME=/Library/Java/Home
 export AWS_RDS_HOME=$HOME/aws/RDSCli-1.8.002
