@@ -45,10 +45,11 @@ alias WATCHsudo="sudo watch -d --interval=1"
 alias scr="screen -U -D -RR"
 alias screen="screen -U -D -RR"
 
+#rmはチェックが入るようにすると安全
 alias rm='rm -i'
-alias e='emacs'
 
 #俺用エイリアス
+alias e='emacs'
 alias be='bundle exec'
 alias bi='bundle install'
 alias r='rails'
