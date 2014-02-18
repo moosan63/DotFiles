@@ -23,9 +23,6 @@ alias -g L="| lv -c"	# less -R
 # 指定したユーザーにメッセージを送る
 alias -g W="| write"
 
-# エディタ
-alias emacs="/usr/local/Cellar/emacs/24.2/bin/emacs  -nw" 
-
 # -p: 複数ファイル指定したときにタブに展開
 alias vi="vim -p"
 alias vim="vim -p"

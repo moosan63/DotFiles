@@ -1,3 +1,4 @@
+eval "$(rbenv init -)" 
 # zsh config file dir
 export ZDOTDIR=${HOME}
 export EDITOR=emacs
@@ -66,12 +67,12 @@ RPROMPT=$'%{\e[${PSCOLOR}m%}%F{white}[`rprompt-git-current-branch`%~]%f%{\e[00m%
 PROMPT=$'%{\e[${PSCOLOR}m%}${USERNAME}@${HOST} %#%{\e[m%} '
 
 #### 個人用設定ファイルがあればそれを読み込む
-if [ -e ~/.zshrc_private ]; then
-    source ~/.zshrc_private
+if [ -e ~/DotFiles/.zshrc_private ]; then
+    source ~/DotFiles/.zshrc_private
 fi
 
-if [ -e ~/.zshrc_alias ]; then
-    source ~/.zshrc_alias
+if [ -e ~/DotFiles/.zshrc_alias ]; then
+    source ~/DotFiles/.zshrc_alias
 fi
 
 
@@ -245,7 +246,7 @@ export EC2_PRIVATE_KEY=$HOME/aws/pk-42Y3SXC3CI326GRV3RTD4XK4DECAH6P2.pem
 export EC2_URL=https://iettydbinstance.cytknjddip5r.us-east-1.rds.amazonaws.com
 export EC2_REGION=us-east-1
 
-export PATH=$PATH:/usr/local/Cellar/emacs/24.2/bin
+export PATH=$PATH:/usr/local/Cellar/emacs/24.3/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PHP_HOME=$HOME/local/php/versions
